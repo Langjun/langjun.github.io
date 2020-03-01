@@ -20,20 +20,21 @@
     var CONFIG = {"hostname":"langjun.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="团队一直在支持视频提链的需求，近期利用chrome headless进行升级，效率大大提升。那么chrome headless是什么呢？ 通过官方更新日志了解到，在chrome 59的版本加入了headless模式，所谓的headless就是一个无界面的浏览器，可以想有界面浏览器一样浏览网页，但无法直接看到页面。需要利用chrome远程调试接口进行调试。 那么，提供这样一个无界面的浏览器有什么用呢">
+  <meta name="description" content="在近期工作中，又一次涉及到了微信、QQ这两大app中的分享问题。故将一些细小的点记录下来。 前期准备首先，在微信的页面二次分享中你会用到jweixin.js的js-sdk，它是微信公众频道提供给开发者用于开发基于微信内的网页工具包。其中对外暴露了许多有用的api，可以到这个文档中查看其引入、使用方式。其次，对于手Q的二次分享中你会用到share.js,它提供了定制微信、手Q及QQ空间的分享内容定制">
 <meta property="og:type" content="article">
-<meta property="og:title" content="chrome headless探索">
-<meta property="og:url" content="https://langjun.github.io/2017/06/09/chrome-headless%E6%8E%A2%E7%B4%A2/index.html">
+<meta property="og:title" content="在微信、QQ中进行二次分享小结">
+<meta property="og:url" content="https://langjun.github.io/article/31905/index.html">
 <meta property="og:site_name" content="知遇">
-<meta property="og:description" content="团队一直在支持视频提链的需求，近期利用chrome headless进行升级，效率大大提升。那么chrome headless是什么呢？ 通过官方更新日志了解到，在chrome 59的版本加入了headless模式，所谓的headless就是一个无界面的浏览器，可以想有界面浏览器一样浏览网页，但无法直接看到页面。需要利用chrome远程调试接口进行调试。 那么，提供这样一个无界面的浏览器有什么用呢">
+<meta property="og:description" content="在近期工作中，又一次涉及到了微信、QQ这两大app中的分享问题。故将一些细小的点记录下来。 前期准备首先，在微信的页面二次分享中你会用到jweixin.js的js-sdk，它是微信公众频道提供给开发者用于开发基于微信内的网页工具包。其中对外暴露了许多有用的api，可以到这个文档中查看其引入、使用方式。其次，对于手Q的二次分享中你会用到share.js,它提供了定制微信、手Q及QQ空间的分享内容定制">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2017-06-09T09:31:20.000Z">
-<meta property="article:modified_time" content="2020-03-01T09:38:58.580Z">
+<meta property="article:published_time" content="2017-06-19T12:26:20.000Z">
+<meta property="article:modified_time" content="2020-03-01T13:57:41.669Z">
 <meta property="article:author" content="Jun Lang">
-<meta property="article:tag" content="Chrome">
+<meta property="article:tag" content="二次分享">
+<meta property="article:tag" content="Front&amp;End">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://langjun.github.io/2017/06/09/chrome-headless%E6%8E%A2%E7%B4%A2/">
+<link rel="canonical" href="https://langjun.github.io/article/31905/">
 
 
 <script id="page-configurations">
@@ -45,7 +46,7 @@
   };
 </script>
 
-  <title>chrome headless探索 | 知遇</title>
+  <title>在微信、QQ中进行二次分享小结 | 知遇</title>
   
 
 
@@ -155,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://langjun.github.io/2017/06/09/chrome-headless%E6%8E%A2%E7%B4%A2/">
+    <link itemprop="mainEntityOfPage" href="https://langjun.github.io/article/31905/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -168,7 +169,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          chrome headless探索
+          在微信、QQ中进行二次分享小结
         </h1>
 
         <div class="post-meta">
@@ -178,14 +179,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-06-09 17:31:20" itemprop="dateCreated datePublished" datetime="2017-06-09T17:31:20+08:00">2017-06-09</time>
+              <time title="创建时间：2017-06-19 20:26:20" itemprop="dateCreated datePublished" datetime="2017-06-19T20:26:20+08:00">2017-06-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-01 17:38:58" itemprop="dateModified" datetime="2020-03-01T17:38:58+08:00">2020-03-01</time>
+                <time title="修改时间：2020-03-01 21:57:41" itemprop="dateModified" datetime="2020-03-01T21:57:41+08:00">2020-03-01</time>
               </span>
 
           
@@ -199,35 +200,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>团队一直在支持视频提链的需求，近期利用chrome headless进行升级，效率大大提升。那么chrome headless是什么呢？</p>
-<p>通过<a href="https://developers.google.com/web/updates/2017/04/headless-chrome" target="_blank" rel="noopener">官方更新日志</a>了解到，在chrome 59的版本加入了headless模式，所谓的headless就是一个无界面的浏览器，可以想有界面浏览器一样浏览网页，但无法直接看到页面。需要利用chrome远程调试接口进行调试。</p>
-<p>那么，提供这样一个无界面的浏览器有什么用呢？官方给的答案是这样的</p>
-<blockquote>
-<p>Why is that useful?</p>
-</blockquote>
-<blockquote>
-<p>A headless browser is a great tool for automated testing and server environments where you don’t need a visible UI shell. For example, you may want to run some tests against a real web page, create a PDF of it, or just inspect how the browser renders an URL.</p>
-</blockquote>
-<p>事实上，除了所描述的场景，还有更多的里有你会去使用他！</p>
+        <p>在近期工作中，又一次涉及到了微信、QQ这两大app中的分享问题。故将一些细小的点记录下来。</p>
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><p>首先，在微信的页面二次分享中你会用到<a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115" target="_blank" rel="noopener">jweixin.js</a>的js-sdk，它是微信公众频道提供给开发者用于开发基于微信内的网页工具包。<br>其中对外暴露了许多有用的api，可以到这个文档中查看其引入、使用方式。<br>其次，对于手Q的二次分享中你会用到<a href="http://open.mobile.qq.com/api/component/share" target="_blank" rel="noopener">share.js</a>,它提供了定制微信、手Q及QQ空间的分享内容定制的功能，其引用及使用方式可以参考文档给出的说明进行操作。</p>
 <a id="more"></a>
 
-<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><blockquote>
-<p>首先确保你已经安装了chrome 59，本例在macOS中进行演示。</p>
-</blockquote>
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>其中两个sdk暴露出来的API基本相似，我们在使用过程中可以将这两个sdk的内容进行一次统一封装，这样抹平两个平台api的微小的差异，使用起来非常方便。<br>其中<code>手机百度</code>产品线中使用了这样的sdk进行了二次封装<a href="http://b.bdstatic.com/searchbox/icms/searchbox/js/common/openjs/shareconfig.min.js?x-bs-version=timestamp" target="_blank" rel="noopener"></a></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>在QQ的分享中，有这样的限制<a href="http://open.mobile.qq.com/api/component/share#api:注意事项" target="_blank" rel="noopener">注意</a>，</p>
+<blockquote>
 <ol>
-<li>为了方便使用，首先在命令行工具中设置chrome别名<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias chrome&#x3D;&quot;&#x2F;Applications&#x2F;Google\ Chrome.app&#x2F;Contents&#x2F;MacOS&#x2F;Google\ Chrome&quot;</span><br></pre></td></tr></table></figure></li>
-<li>命令启动<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chrome --headless www.baidu.com</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>由于手机QQ限制，分享URL必须与页面URL同一域名，否则设置不生效。</li>
+<li>可根据当前页面的客户端环境，判断是否需要WX配置，减少不必要请求。</li>
 </ol>
-<p>更多的命令参数，请大家自行挖掘</p>
-<h2 id="调试ui界面"><a href="#调试ui界面" class="headerlink" title="调试ui界面"></a>调试ui界面</h2><blockquote>
-<p>如果想要调试UI界面，需要在启动时加上调试端口参数</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chrome --headless --remote-debugging-port&#x3D;9222 www.baidu.com</span><br></pre></td></tr></table></figure>
-<p>这样，在有图形界面的chrome中输入 <code>http://localhost:9222</code> 既可看到Baidu的首页了</p>
-<p>通过以上步骤，既可以启动chrome headless模式，并进行调试了。如果你需要更多api，可以使用<a href="https://www.npmjs.com/package/chrome-remote-interface" target="_blank" rel="noopener">chrome-remote-interface</a> 使用nodejs来写自己的处理程序</p>
-<h2 id="in-the-end"><a href="#in-the-end" class="headerlink" title="in the end"></a>in the end</h2><p>团队使用chrome headless模式进行各大视频网站的视频提链，效率极大提升，得益于这种NO GUI的浏览器的稳定以及丰富的调试API</p>
+<p>在微信中，对外部链接有部分规范<a href="http://weixin.qq.com/cgi-bin/readtemplate?t=weixin_external_links_content_management_specification" target="_blank" rel="noopener">传送门</a></p>
+<p>大家在开发过程中要注意</p>
 <p>以上</p>
 
     </div>
@@ -238,7 +224,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Chrome/" rel="tag"># Chrome</a>
+              <a href="/tags/%E4%BA%8C%E6%AC%A1%E5%88%86%E4%BA%AB/" rel="tag"># 二次分享</a>
+              <a href="/tags/Front-End/" rel="tag"># Front&End</a>
           </div>
 
         
@@ -247,12 +234,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2017/06/07/What-s-new-in-devtools-chrome-59/" rel="prev" title="What's new in DevTools (chrome 59)">
-      <i class="fa fa-chevron-left"></i> What's new in DevTools (chrome 59)
+    <a href="/article/38259/" rel="prev" title="chrome headless探索">
+      <i class="fa fa-chevron-left"></i> chrome headless探索
     </a></div>
       <div class="post-nav-item">
-    <a href="/2017/06/19/%E5%9C%A8%E5%BE%AE%E4%BF%A1%E3%80%81QQ%E4%B8%AD%E8%BF%9B%E8%A1%8C%E4%BA%8C%E6%AC%A1%E5%88%86%E4%BA%AB%E5%B0%8F%E7%BB%93/" rel="next" title="在微信、QQ中进行二次分享小结">
-      在微信、QQ中进行二次分享小结 <i class="fa fa-chevron-right"></i>
+    <a href="/article/10395/" rel="next" title="applications of my macbook pro">
+      applications of my macbook pro <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -313,7 +300,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#启动"><span class="nav-number">1.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调试ui界面"><span class="nav-number">2.</span> <span class="nav-text">调试ui界面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#in-the-end"><span class="nav-number">3.</span> <span class="nav-text">in the end</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前期准备"><span class="nav-number">1.</span> <span class="nav-text">前期准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">2.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">3.</span> <span class="nav-text">注意事项</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -20,21 +20,26 @@
     var CONFIG = {"hostname":"langjun.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="在近期工作中，又一次涉及到了微信、QQ这两大app中的分享问题。故将一些细小的点记录下来。 前期准备首先，在微信的页面二次分享中你会用到jweixin.js的js-sdk，它是微信公众频道提供给开发者用于开发基于微信内的网页工具包。其中对外暴露了许多有用的api，可以到这个文档中查看其引入、使用方式。其次，对于手Q的二次分享中你会用到share.js,它提供了定制微信、手Q及QQ空间的分享内容定制">
+  <meta name="description" content="近期Chrome发布了59版本，那么与开发者最贴近的开发者工具中带来了什么新功能呢？  CSS&amp;JS代码使用率检测 这个功能可以在Coverage Tab中展示使用到与未使用到的代码占比 全页面截图，传说中的超长截图。入口需要把模式切换成移动设备模式，更多 - Capture full size screenshot 阻止网络请求。 手动的方式在网络面板阻止单个网络请求，方便进行页面的调试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在微信、QQ中进行二次分享小结">
-<meta property="og:url" content="https://langjun.github.io/2017/06/19/%E5%9C%A8%E5%BE%AE%E4%BF%A1%E3%80%81QQ%E4%B8%AD%E8%BF%9B%E8%A1%8C%E4%BA%8C%E6%AC%A1%E5%88%86%E4%BA%AB%E5%B0%8F%E7%BB%93/index.html">
+<meta property="og:title" content="What&#39;s new in DevTools (chrome 59)">
+<meta property="og:url" content="https://langjun.github.io/article/63121/index.html">
 <meta property="og:site_name" content="知遇">
-<meta property="og:description" content="在近期工作中，又一次涉及到了微信、QQ这两大app中的分享问题。故将一些细小的点记录下来。 前期准备首先，在微信的页面二次分享中你会用到jweixin.js的js-sdk，它是微信公众频道提供给开发者用于开发基于微信内的网页工具包。其中对外暴露了许多有用的api，可以到这个文档中查看其引入、使用方式。其次，对于手Q的二次分享中你会用到share.js,它提供了定制微信、手Q及QQ空间的分享内容定制">
+<meta property="og:description" content="近期Chrome发布了59版本，那么与开发者最贴近的开发者工具中带来了什么新功能呢？  CSS&amp;JS代码使用率检测 这个功能可以在Coverage Tab中展示使用到与未使用到的代码占比 全页面截图，传说中的超长截图。入口需要把模式切换成移动设备模式，更多 - Capture full size screenshot 阻止网络请求。 手动的方式在网络面板阻止单个网络请求，方便进行页面的调试">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2017-06-19T12:26:20.000Z">
-<meta property="article:modified_time" content="2020-03-01T09:38:58.580Z">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fgcnceh64vj30uy0ciacm.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fgcnd6qbfij30dq0dm0u8.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fgcne5w8a0j30mc0bs40b.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fgcnh1kkroj30t80js7a7.jpg">
+<meta property="article:published_time" content="2017-06-07T03:34:54.000Z">
+<meta property="article:modified_time" content="2020-03-01T13:57:41.667Z">
 <meta property="article:author" content="Jun Lang">
-<meta property="article:tag" content="二次分享">
-<meta property="article:tag" content="Front&amp;End">
+<meta property="article:tag" content="Chrome">
+<meta property="article:tag" content="DevTools">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fgcnceh64vj30uy0ciacm.jpg">
 
-<link rel="canonical" href="https://langjun.github.io/2017/06/19/%E5%9C%A8%E5%BE%AE%E4%BF%A1%E3%80%81QQ%E4%B8%AD%E8%BF%9B%E8%A1%8C%E4%BA%8C%E6%AC%A1%E5%88%86%E4%BA%AB%E5%B0%8F%E7%BB%93/">
+<link rel="canonical" href="https://langjun.github.io/article/63121/">
 
 
 <script id="page-configurations">
@@ -46,7 +51,7 @@
   };
 </script>
 
-  <title>在微信、QQ中进行二次分享小结 | 知遇</title>
+  <title>What's new in DevTools (chrome 59) | 知遇</title>
   
 
 
@@ -156,7 +161,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://langjun.github.io/2017/06/19/%E5%9C%A8%E5%BE%AE%E4%BF%A1%E3%80%81QQ%E4%B8%AD%E8%BF%9B%E8%A1%8C%E4%BA%8C%E6%AC%A1%E5%88%86%E4%BA%AB%E5%B0%8F%E7%BB%93/">
+    <link itemprop="mainEntityOfPage" href="https://langjun.github.io/article/63121/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -169,7 +174,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          在微信、QQ中进行二次分享小结
+          What's new in DevTools (chrome 59)
         </h1>
 
         <div class="post-meta">
@@ -179,14 +184,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-06-19 20:26:20" itemprop="dateCreated datePublished" datetime="2017-06-19T20:26:20+08:00">2017-06-19</time>
+              <time title="创建时间：2017-06-07 11:34:54" itemprop="dateCreated datePublished" datetime="2017-06-07T11:34:54+08:00">2017-06-07</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-01 17:38:58" itemprop="dateModified" datetime="2020-03-01T17:38:58+08:00">2020-03-01</time>
+                <time title="修改时间：2020-03-01 21:57:41" itemprop="dateModified" datetime="2020-03-01T21:57:41+08:00">2020-03-01</time>
               </span>
 
           
@@ -200,20 +205,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在近期工作中，又一次涉及到了微信、QQ这两大app中的分享问题。故将一些细小的点记录下来。</p>
-<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><p>首先，在微信的页面二次分享中你会用到<a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115" target="_blank" rel="noopener">jweixin.js</a>的js-sdk，它是微信公众频道提供给开发者用于开发基于微信内的网页工具包。<br>其中对外暴露了许多有用的api，可以到这个文档中查看其引入、使用方式。<br>其次，对于手Q的二次分享中你会用到<a href="http://open.mobile.qq.com/api/component/share" target="_blank" rel="noopener">share.js</a>,它提供了定制微信、手Q及QQ空间的分享内容定制的功能，其引用及使用方式可以参考文档给出的说明进行操作。</p>
-<a id="more"></a>
-
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>其中两个sdk暴露出来的API基本相似，我们在使用过程中可以将这两个sdk的内容进行一次统一封装，这样抹平两个平台api的微小的差异，使用起来非常方便。<br>其中<code>手机百度</code>产品线中使用了这样的sdk进行了二次封装<a href="http://b.bdstatic.com/searchbox/icms/searchbox/js/common/openjs/shareconfig.min.js?x-bs-version=timestamp" target="_blank" rel="noopener"></a></p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>在QQ的分享中，有这样的限制<a href="http://open.mobile.qq.com/api/component/share#api:注意事项" target="_blank" rel="noopener">注意</a>，</p>
-<blockquote>
-<ol>
-<li>由于手机QQ限制，分享URL必须与页面URL同一域名，否则设置不生效。</li>
-<li>可根据当前页面的客户端环境，判断是否需要WX配置，减少不必要请求。</li>
-</ol>
-</blockquote>
-<p>在微信中，对外部链接有部分规范<a href="http://weixin.qq.com/cgi-bin/readtemplate?t=weixin_external_links_content_management_specification" target="_blank" rel="noopener">传送门</a></p>
-<p>大家在开发过程中要注意</p>
+        <p>近期Chrome发布了59版本，那么与开发者最贴近的开发者工具中带来了什么新功能呢？</p>
+<ul>
+<li>CSS&amp;JS代码使用率检测<ul>
+<li>这个功能可以在Coverage Tab中展示使用到与未使用到的代码占比<br><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fgcnceh64vj30uy0ciacm.jpg" alt=""></li>
+<li>全页面截图，传说中的超长截图。入口需要把模式切换成移动设备模式，更多 - <code>Capture full size screenshot</code><br><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fgcnd6qbfij30dq0dm0u8.jpg" alt=""></li>
+<li>阻止网络请求。 手动的方式在网络面板阻止单个网络请求，方便进行页面的调试<br><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fgcne5w8a0j30mc0bs40b.jpg" alt=""></li>
+<li>单步调试async/await<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function wait(ms) &#123;</span><br><span class="line">    return new Promise(r &#x3D;&gt; setTimeout(r, ms)).then(() &#x3D;&gt; &quot;Yay&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; do some work in background.</span><br><span class="line">setInterval(() &#x3D;&gt; 42, 200);</span><br><span class="line"></span><br><span class="line">async function test() &#123;</span><br><span class="line">    debugger;</span><br><span class="line">    const hello &#x3D; &quot;world&quot;;</span><br><span class="line">    const response &#x3D; await fetch(&#39;index.html&#39;);</span><br><span class="line">    const tmp &#x3D; await wait(1000);</span><br><span class="line">    console.log(tmp);</span><br><span class="line">    return hello;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">async function runTest() &#123;</span><br><span class="line">    let result &#x3D; await test();</span><br><span class="line">    console.log(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>统一命令行菜单 在开发者工具中使用Command + o调起<br><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fgcnh1kkroj30t80js7a7.jpg" alt=""></li>
+</ul>
+</li>
+</ul>
+<p>这些新增特性使用起来非常酷，可以在实际工作中使用起来。<br><a href="https://developers.google.com/web/updates/2017/04/devtools-release-notes#highlights" target="_blank" rel="noopener">详细请点击这里</a></p>
 <p>以上</p>
 
     </div>
@@ -224,8 +227,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E4%BA%8C%E6%AC%A1%E5%88%86%E4%BA%AB/" rel="tag"># 二次分享</a>
-              <a href="/tags/Front-End/" rel="tag"># Front&End</a>
+              <a href="/tags/Chrome/" rel="tag"># Chrome</a>
+              <a href="/tags/DevTools/" rel="tag"># DevTools</a>
           </div>
 
         
@@ -234,12 +237,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2017/06/09/chrome-headless%E6%8E%A2%E7%B4%A2/" rel="prev" title="chrome headless探索">
-      <i class="fa fa-chevron-left"></i> chrome headless探索
+    <a href="/article/21743/" rel="prev" title="FIIL Diva Pro">
+      <i class="fa fa-chevron-left"></i> FIIL Diva Pro
     </a></div>
       <div class="post-nav-item">
-    <a href="/2017/07/10/applications-of-my-macbook-pro/" rel="next" title="applications of my macbook pro">
-      applications of my macbook pro <i class="fa fa-chevron-right"></i>
+    <a href="/article/38259/" rel="next" title="chrome headless探索">
+      chrome headless探索 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -300,7 +303,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前期准备"><span class="nav-number">1.</span> <span class="nav-text">前期准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">2.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">3.</span> <span class="nav-text">注意事项</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
