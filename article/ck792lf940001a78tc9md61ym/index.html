@@ -20,21 +20,21 @@
     var CONFIG = {"hostname":"langjun.github.io","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="分享一下自己常用的几款在Mac上的软件，真的可以提高工作效率。 编辑器 sublime text 非常喜欢的一款简洁、轻量的编辑器，现在基本用来做临时的文本编辑等   intellij idea 日常写码利器、各种方便，用了便知道。这款软件使用了校园的企业邮箱账号可以申请到免费使用的license, 每次申请可使用期限为一年，第二年需要更新一次。   Visual Studio Code MS大大">
+  <meta name="description" content="自定义View RoundProgressBar 的简单实现 最近有一个小的交互效果需要实现，就是一个圆环的ProgressBar，可以设计进度而展示不同的进度。虽然这个自定义View 用搜索引擎可以搜出一大堆各式的实现方式，但是我这里提供一个简洁的loading，希望能给你一些参考。  注意我们这里使用Canvas来绘制出圆环的加载效果，但要注意的地方如下：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="applications of my macbook pro">
-<meta property="og:url" content="https://langjun.github.io/article/ck792htre0003s28t4xji06ta/index.html">
+<meta property="og:title" content="Android Round Progress Bar">
+<meta property="og:url" content="https://langjun.github.io/article/ck792lf940001a78tc9md61ym/index.html">
 <meta property="og:site_name" content="知遇">
-<meta property="og:description" content="分享一下自己常用的几款在Mac上的软件，真的可以提高工作效率。 编辑器 sublime text 非常喜欢的一款简洁、轻量的编辑器，现在基本用来做临时的文本编辑等   intellij idea 日常写码利器、各种方便，用了便知道。这款软件使用了校园的企业邮箱账号可以申请到免费使用的license, 每次申请可使用期限为一年，第二年需要更新一次。   Visual Studio Code MS大大">
+<meta property="og:description" content="自定义View RoundProgressBar 的简单实现 最近有一个小的交互效果需要实现，就是一个圆环的ProgressBar，可以设计进度而展示不同的进度。虽然这个自定义View 用搜索引擎可以搜出一大堆各式的实现方式，但是我这里提供一个简洁的loading，希望能给你一些参考。  注意我们这里使用Canvas来绘制出圆环的加载效果，但要注意的地方如下：">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2017-07-10T12:48:19.000Z">
-<meta property="article:modified_time" content="2020-03-01T09:38:58.580Z">
+<meta property="article:published_time" content="2016-06-13T08:39:38.000Z">
+<meta property="article:modified_time" content="2020-03-01T09:38:58.579Z">
 <meta property="article:author" content="Jun Lang">
-<meta property="article:tag" content="App">
-<meta property="article:tag" content="MacBook">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="Canvas">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://langjun.github.io/article/ck792htre0003s28t4xji06ta/">
+<link rel="canonical" href="https://langjun.github.io/article/ck792lf940001a78tc9md61ym/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>applications of my macbook pro | 知遇</title>
+  <title>Android Round Progress Bar | 知遇</title>
   
 
 
@@ -151,7 +151,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://langjun.github.io/article/ck792htre0003s28t4xji06ta/">
+    <link itemprop="mainEntityOfPage" href="https://langjun.github.io/article/ck792lf940001a78tc9md61ym/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -164,7 +164,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          applications of my macbook pro
+          Android Round Progress Bar
         </h1>
 
         <div class="post-meta">
@@ -174,7 +174,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-07-10 20:48:19" itemprop="dateCreated datePublished" datetime="2017-07-10T20:48:19+08:00">2017-07-10</time>
+              <time title="创建时间：2016-06-13 16:39:38" itemprop="dateCreated datePublished" datetime="2016-06-13T16:39:38+08:00">2016-06-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -195,81 +195,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>分享一下自己常用的几款在Mac上的软件，真的可以提高工作效率。</p>
-<h2 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h2><ul>
-<li>sublime text<ul>
-<li>非常喜欢的一款简洁、轻量的编辑器，现在基本用来做临时的文本编辑等</li>
-</ul>
-</li>
-<li>intellij idea<ul>
-<li>日常写码利器、各种方便，用了便知道。这款软件使用了校园的企业邮箱账号可以申请到免费使用的license, 每次申请可使用期限为一年，第二年需要更新一次。</li>
-</ul>
-</li>
-<li>Visual Studio Code<ul>
-<li>MS大大推出的神器，个人使用感觉是介于sublime与idea之前的一款编辑器，编写命令行操作频繁的简单demo时会用到。关键是免费。</li>
-</ul>
-</li>
-</ul>
+        <h1 id="自定义View-RoundProgressBar-的简单实现"><a href="#自定义View-RoundProgressBar-的简单实现" class="headerlink" title="自定义View RoundProgressBar 的简单实现"></a>自定义View RoundProgressBar 的简单实现</h1><blockquote>
+<p>最近有一个小的交互效果需要实现，就是一个圆环的ProgressBar，可以设计进度而展示不同的进度。虽然这个自定义View 用搜索引擎可以搜出一大堆各式的实现方式，但是我这里提供一个简洁的loading，希望能给你一些参考。</p>
+</blockquote>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>我们这里使用Canvas来绘制出圆环的加载效果，但要注意的地方如下：</p>
 <a id="more"></a>
 
-<h2 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h2><ul>
-<li>Git Tower<ul>
-<li>git的一个超级棒可视化工具，无论是界面的样式以及功能上都非常满足我现在使用的场景，非常方便。</li>
-</ul>
-</li>
-<li>Svn Cornerstore<ul>
-<li>SVN的一个可视化工具，早期参与使用svn做版本控制的项目时这是一款利器，体验最出色的一点个人觉着是在merge code的操作上。<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2></li>
-</ul>
-</li>
-<li>Dash<ul>
-<li>查文档利器，不过使用场景很少，大部分API查询均在网络搜索下进行</li>
-</ul>
-</li>
-<li>Alfred<ul>
-<li>不用多说，又是一款可以节省很多时间的神器，极力推荐。</li>
-</ul>
-</li>
-<li>Paste<ul>
-<li>一款剪切板的扩展工具，粗略统计，日均使用次数10+。</li>
-</ul>
-</li>
-<li>Moon<ul>
-<li>用来做应用窗口快速布局、缩放等操作。用起来也会节省小部分时间。</li>
-</ul>
-</li>
-<li>iPic<ul>
-<li>mac上一款好用的图床软件，使用markdown写文章的场景特好用，只可惜是订阅式付费。暂时使用免费功能，上传微博图床。</li>
-</ul>
-</li>
-<li>1Passwrod<ul>
-<li>密码管理工具，用来管理自己各种站点的密码，也是很常用的工具。尤其是对于各种需要复杂密码的场景，可以随机生成密码串。</li>
-</ul>
-</li>
-<li>iStat Menus<ul>
-<li>虽然它包含多种功能，包括cpu&amp;gpu、memory、disks等等的功能，但最常用的是在状态栏点击一下就可以看到本机ip，点击ip地址可以快速复制，6.X更新后更加符合个人使用习惯及不讨厌的UI。</li>
-</ul>
-</li>
-<li>Amphetamine<ul>
-<li>一款专治突然黑屏的尴尬场景。</li>
-</ul>
-</li>
-<li>PopClip<ul>
-<li>一个对高亮本文的快捷操作工具条，其中可扩展功能非常丰富，最常用的搜索、翻译、拷贝等场景。</li>
-</ul>
-</li>
-<li>NTFS for Mac OS X<ul>
-<li>用来兼容移动硬盘在macOS上进行读写操作</li>
-</ul>
-</li>
-<li>Bartender<ul>
-<li>好用的状态栏图标管理工具，将不常用的图标隐藏起来。使状态栏干净整洁。</li>
-</ul>
-</li>
-<li>Charles<ul>
-<li>目前使用过最好用的抓包工具、其中包含了https抓包、慢网模拟等等常用的功能</li>
-</ul>
-</li>
-</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mPaint = <span class="keyword">new</span> Paint();</span><br><span class="line">mPaint.setAntiAlias(<span class="keyword">true</span>); <span class="comment">// 抗锯齿</span></span><br><span class="line">mPaint.setStrokeWidth(mCircleWidth);</span><br><span class="line">mPaint.setStyle(Paint.Style.STROKE); <span class="comment">// 设置画笔样式</span></span><br><span class="line">mPaint.setStrokeCap(Paint.Cap.ROUND); <span class="comment">// 设置线条为圆形</span></span><br><span class="line">mPaint.setColor(mCircleColor);</span><br></pre></td></tr></table></figure>
+
+<p>抗锯齿一定要开启（不然容易被UE MM拍回来 -.-）<br>线条设置为ROUND来实现设计稿中两端为原型的效果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_ZERO_DEGREE = -<span class="number">90</span>; <span class="comment">// 椭圆默认0°角为三点钟方向开始,默认-90°将调整为12点钟方向</span></span><br></pre></td></tr></table></figure>
+
+<p>其中利用 @see Canvas.drawArc 方法的初始的0°角在三点钟的方向，所以这里给了一个默认的-90°来调整一下初始位置<br>下面给出Github的连接，并附有效果图及源码</p>
+<p><a href="https://github.com/langjun/RoundProgressBar" target="_blank" rel="noopener">Github</a></p>
 
     </div>
 
@@ -279,8 +217,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/App/" rel="tag"># App</a>
-              <a href="/tags/MacBook/" rel="tag"># MacBook</a>
+              <a href="/tags/Android/" rel="tag"># Android</a>
+              <a href="/tags/Canvas/" rel="tag"># Canvas</a>
           </div>
 
         
@@ -289,10 +227,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/article/ck792htrj0007s28tfsefb9uw/" rel="prev" title="在微信、QQ中进行二次分享小结">
-      <i class="fa fa-chevron-left"></i> 在微信、QQ中进行二次分享小结
+    <a href="/article/ck792lf8y0000a78tbreud3va/" rel="prev" title="Android OpenGL Dev Tips">
+      <i class="fa fa-chevron-left"></i> Android OpenGL Dev Tips
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/article/ck792lf960003a78tfhwp94kd/" rel="next" title="FIIL Diva Pro">
+      FIIL Diva Pro <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -352,7 +293,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑器"><span class="nav-number">1.</span> <span class="nav-text">编辑器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本控制"><span class="nav-number">2.</span> <span class="nav-text">版本控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义View-RoundProgressBar-的简单实现"><span class="nav-number">1.</span> <span class="nav-text">自定义View RoundProgressBar 的简单实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">1.1.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -402,8 +343,6 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Jun Lang</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
-  </div>
 
         
 
